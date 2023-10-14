@@ -15,9 +15,12 @@ h1{color: #40a944; text-align: center;}
 p{ font-family: verdana;font-size: 20px;}
 .center {
   display: flex;
-  justify-items: center;
-  padding: 10px;
+  justify-content: center;
 }
+      .button {
+        border: 3px solid green;
+        padding: 10px;
+      }
     </style>
 
   </head>
@@ -125,7 +128,7 @@ p{ font-family: verdana;font-size: 20px;}
         </div>
 
         <div class="form-group">
-          <label for="totalPrivateSources">Other Private Sources:</label>
+          <label for="totalPrivateSources">Total Private Sources:</label>
           <input type="number" id="totalPrivateSources" name="totalPrivateSources" step="0.01" required><br>
         </div>
 
@@ -135,18 +138,12 @@ p{ font-family: verdana;font-size: 20px;}
         </div>
 
         <div class="form-group">
-          <label for="nonCMFMoneyFromFCLF">Non CMF Money From FCLF:</label>
-          <input type="number" id="nonCMFMoneyFromFCLF" name="nonCMFMoneyFromFCLF" step="0.01" required><br>
-        </div>
-
-        <div class="form-group">
           <label for="cmfLoanAmount">CMF Loan Amount:</label>
           <input type="number" id="cmfLoanAmount" name="cmfLoanAmount" step="0.01" required><br>
         </div>
       </div>
-
-      <div class="submit-btn">
-        <input type="submit" id="submit" class="center" value="Submit">
+      <div class="submit-btn center">
+        <input type="submit" id="submit" class="button" value="Submit">
       </div>
 
     </form>
