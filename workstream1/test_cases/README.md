@@ -4,7 +4,36 @@
 
 The file ```test_cases_data_entry.csv``` contains test cases 
 to determine whether the fields are entered in valid formats. 
+Unless testing the field ```txtPPN```,
+the project names is because
+it is based on the project "SSW" 
+from the the [CMF tool](https://docs.google.com/spreadsheets/d/1qOzzP9Gyhl86o2OPK1iCVCdhrFu_WRgF/edit#gid=2102603070). 
 
+1. The first case should not throw an error. It is used as the benchmark case.
+
+1. The next two cases test whether the user interface 
+gives a warning message if the ```txtPPN``` 
+field is either an empty string or a number. 
+
+1. The next case tests whether the address fields are empty. 
+
+1. The next four cases test whether 
+the ```City``` and ```State``` 
+cause the user interface to give a warning message 
+whe the fields are, respectively,
+empty strings or numbers. 
+
+1. The next ten cases test whether the 
+amounts of financing 
+cause the user interface to give a warning message 
+whe the fields are, respectively,
+strings, whether empty or otherwise. 
+
+1. The next sixteen cases test whether the 
+counts of the number of units
+cause the user interface to give a warning message 
+whe the fields are, respectively,
+strings, whether empty or otherwise. 
 
 
 
@@ -20,7 +49,8 @@ constraints if too many such projects were funded.
 
 The following sample applications are included.
 
-1. ```SOS_ED_Y_HO_N``` is based on the project "SOS" from the [https://docs.google.com/spreadsheets/d/1qOzzP9Gyhl86o2OPK1iCVCdhrFu_WRgF/edit#gid=2102603070](CMF tool). These values represent an application that would have a low
+1. ```SOS_ED_Y_HO_N``` is based on the project "SOS" from the [CMF tool](https://docs.google.com/spreadsheets/d/1qOzzP9Gyhl86o2OPK1iCVCdhrFu_WRgF/edit#gid=2102603070). 
+These values represent an application that would have a low
 percentage of units made available to families with incomes at 50% AMI or below, 
 which may push the portfolio below the threshold of 60 percent. *[Note: the suffix ```ED_Y_HO_N``` indicates that this case has an address in an area that likely qualifies as an Area of Economic Distress. Later versions could include an address that is not also in a High-Opportunity  Area for Eligible-Income Families.]*
 
