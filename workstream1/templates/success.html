@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+  </head>
+  <body>
+    <h2>Project Metrics</h2>
+    <table border="1">
+      <tr>
+        <th>Metric</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Total Project Cost</td>
+        <td>${{ total_cost }}</td>
+      </tr>
+      <tr>
+        <td>Total Number of Units</td>
+        <td>{{ total_units }}</td>
+      </tr>
+      <tr>
+        <td>Total Units for Very Low Income Families</td>
+        <td>{{ very_low_income_units }}</td>
+      </tr>
+      <tr>
+        <td>Total Units for Low Income Families</td>
+        <td>{{ low_income_units }}</td>
+      </tr>
+      <tr>
+        <td>Tract Number</td>
+        <td>{{ tract_number }}</td>
+      </tr>
+      <tr>
+        <td>Distressed Status</td>
+        <td>{{ distressed_status }}</td>
+    </table>
+    <h2>Requirement Checks</h2>
+    <table border="1">
+      <tr>
+        <th>Requirement Status</th>
+      </tr>
+      {% for requirement in requirements %}
+      <tr>
+        <td>{{ requirement }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

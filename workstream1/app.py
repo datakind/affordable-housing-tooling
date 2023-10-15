@@ -1,5 +1,8 @@
-from flask import Flask, request, render_template
 import mariadb
+import pandas as pd
+import requests
+
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -12,6 +15,53 @@ config = {
     "password": "new_password",
     "database": "CMFPortfolio",
 }
+
+
+def is_distressed_area(tract):
+    # Read the CSV
+    df = pd.read_csv("data/orange_county_qct.csv")
+
+    # Find the tract
+    tract_row = df[df["tract"] == int(tract)]
+
+    # If tract not found, return None
+    if tract_row.empty:
+        return None
+
+    # Return the qct value
+    return int(tract_row["qct"].values[0])
+
+
+def get_tract_number(street, city, state, zipcode):
+    address = f"{street}, {city}, {state} {zipcode}"
+    base_url = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress"
+
+    parameters = {
+        "address": address,
+        "benchmark": "Public_AR_Census2020",
+        "vintage": "Census2010_Census2020",
+        "format": "json",
+    }
+
+    print("Address = " + address + "\n")
+    response = requests.get(base_url, params=parameters)
+
+    if response.status_code == 200:
+        data = response.json()
+        if data.get("result", {}).get("addressMatches"):
+            tract = (
+                data["result"]["addressMatches"][0]
+                .get("geographies", {})
+                .get("Census Tracts", [{}])[0]
+                .get("TRACT", "")
+            )
+            return tract
+    else:
+        print("API failed.")
+        print(
+            response.content
+        )  # This will print the content of the response, which might contain error details.
+    return None
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -35,17 +85,39 @@ def index():
         )
 
         metrics_data = [
-            (1, form_data["txtUnder30"], form_data["projectName"]),
-            (2, form_data["txtUnder50"], form_data["projectName"]),
-            (3, form_data["txtUnder60"], form_data["projectName"]),
-            (4, form_data["txtUnder80"], form_data["projectName"]),
-            (5, form_data["txtUnder120"], form_data["projectName"]),
-            (6, form_data["txtAbove120"], form_data["projectName"]),
-            (7, form_data["txtNoCmfClf"], form_data["projectName"]),
-            (8, form_data["txtPrivCash"], form_data["projectName"]),
-            (9, form_data["txtGovCash"], form_data["projectName"]),
-            (10, form_data["txtCMFLoan"], form_data["projectName"]),
+            (1, form_data["txtUnder30"], form_data["txtPPN"]),
+            (2, form_data["txtUnder50"], form_data["txtPPN"]),
+            (3, form_data["txtUnder60"], form_data["txtPPN"]),
+            (4, form_data["txtUnder80"], form_data["txtPPN"]),
+            (5, form_data["txtUnder120"], form_data["txtPPN"]),
+            (6, form_data["txtAbove120"], form_data["txtPPN"]),
+            (7, form_data["txtNoCmfClf"], form_data["txtPPN"]),
+            (8, form_data["txtPrivCash"], form_data["txtPPN"]),
+            (9, form_data["txtGovCash"], form_data["txtPPN"]),
+            (10, form_data["txtCMFLoan"], form_data["txtPPN"]),
         ]
+
+        # Fetch the tract number using the address details
+        tract_number = get_tract_number(
+            form_data["txtStreet"],
+            form_data["txtCity"],
+            form_data["txtState"],
+            form_data["txtZIP"],
+        )
+        print(f"Tract number: {tract_number}")
+
+        # Check if tract is in an economically distressed area
+        distressed_status = is_distressed_area(tract_number)
+
+        # If tract number is not in the CSV
+        if distressed_status is None:
+            print("Tract number not found in CSV.")
+        else:
+            # Print the status
+            if distressed_status == 1:
+                print("The tract is in an economically distressed area.")
+            else:
+                print("The tract is NOT in an economically distressed area.")
 
         # Connect to MariaDB
         conn = mariadb.connect(**config)
@@ -64,7 +136,7 @@ def index():
 
         # Insert the new project
         cur.execute(
-            "INSERT INTO Projects(PortfolioID, txtPPN, txtAddr1, txtAddr2, txtCity, txtState, txtZIP) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO Projects(PortfolioID, txtPPN, txtStreet, txtCity, txtState, txtZIP) VALUES (%s, %s, %s, %s, %s, %s)",
             project_data,
         )
 
@@ -73,6 +145,50 @@ def index():
                 "INSERT INTO ProjectMetrics(MetricID, MetricValue, txtPPN) VALUES (%s, %s, %s)",
                 metric,
             )
+
+        # Calculate the total project cost
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID = 7 THEN MetricValue ELSE 0 END) 
+                + SUM(CASE WHEN MetricID = 8 THEN MetricValue ELSE 0 END)
+                + SUM(CASE WHEN MetricID = 9 THEN MetricValue ELSE 0 END) AS TotalProjectCost
+            FROM ProjectMetrics;
+            """
+        )
+        total_cost = cur.fetchone()
+
+        # Calculate the total number of units
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2, 3, 4, 5, 6) THEN MetricValue ELSE 0 END) AS TotalUnits
+            FROM ProjectMetrics;
+            """
+        )
+        total_units = cur.fetchone()
+
+        # Calculate the total number of units for very low income families
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2) THEN MetricValue ELSE 0 END) AS VeryLowIncomeUnits
+            FROM ProjectMetrics;
+            """
+        )
+        very_low_income_units = cur.fetchone()
+
+        # Calculate the total number of units for low income families
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2, 3, 4) THEN MetricValue ELSE 0 END) AS LowIncomeUnits
+            FROM ProjectMetrics;
+            """
+        )
+        low_income_units = cur.fetchone()
+
+        requirements = []
 
         # 1. Check for 45% Very Low Income Families
         cur.execute(
@@ -86,7 +202,7 @@ def index():
         )
         result = cur.fetchone()
         if result[0] < 45:
-            print(
+            requirements.append(
                 "Failed Requirement: Less than 45% of rental affordable housing units for Very Low Income Families."
             )
 
@@ -103,11 +219,11 @@ def index():
         )
         result = cur.fetchone()
         if result[0] < 1:
-            print(
+            requirements.append(
                 "Failed Requirement: Total project cost is not 10x the amount of the CMF award."
             )
 
-        # 3. Check for 60% in Areas of Economic Distress
+        # TODO: 3. Check for 60% in Areas of Economic Distress
 
         # 4. Check for each project having 20% for Low Income Families
         cur.execute(
@@ -123,7 +239,7 @@ def index():
         projects = cur.fetchall()
         for project in projects:
             if project[1] < 20:
-                print(
+                requirements.append(
                     f"Project {project[0]} Failed Requirement: Less than 20% of affordable housing units for Low Income Families."
                 )
 
@@ -131,7 +247,16 @@ def index():
         conn.commit()
         cur.close()
 
-        return "success"
+        return render_template(
+            "success.html",
+            total_cost=total_cost,
+            total_units=total_units,
+            very_low_income_units=very_low_income_units,
+            low_income_units=low_income_units,
+            tract_number=tract_number,
+            distressed_status=distressed_status,
+            requirements=requirements,
+        )
     return render_template("form.html")
 
 

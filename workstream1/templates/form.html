@@ -10,64 +10,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
     <style>
- body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
 
         h1 {
-            text-align: center;
-            color: #40a944;
-            font-size: 36px;
+          text-align: center;
+          color: #40a944;
+          font-size: 36px;
         }
 
         .section {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            margin: 10px;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 20px;
+          margin: 10px;
         }
 
         label {
-            font-weight: bold;
+          font-weight: bold;
         }
 
         .form-group {
-            margin: 10px 0;
+          margin: 10px 0;
         }
 
         input[type="text"],
         input[type="number"],
         input[type="checkbox"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 3px;
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ccc;
+          border-radius: 3px;
         }
 
         .center {
-            display: flex;
-            justify-content: center;
+          display: flex;
+          justify-content: center;
         }
 
         .button {
-            border: 2px solid #40a944;
-            padding: 10px 20px;
-            background-color: #40a944;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
+          border: 2px solid #40a944;
+          padding: 10px 20px;
+          background-color: #40a944;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          border-radius: 5px;
+          cursor: pointer;
         }
 
         .button:hover {
-            background-color: #318934;
+          background-color: #318934;
         }
     </style>
 
@@ -80,98 +80,102 @@
       <div class="section" id="portfolioDetails">
         <h2>Portfolio Details:</h2>
         <div class="form-group">
-          <label for="portfolioID">Portfolio ID:</label>
-          <input type="number" id="portfolioID" name="portfolioID" required><br>
+          <label for="PortfolioID">Portfolio ID:</label>
+          <input type="number" id="PortfolioID" name="PortfolioID" value="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="portfolioName">Portfolio Name:</label>
-          <input type="text" id="portfolioName" name="portfolioName" required><br>
+          <label for="PortfolioName">Portfolio Name:</label>
+          <input type="text" id="PortfolioName" name="PortfolioName" value="CMF" required><br>
         </div>
 
         <div class="form-group">
-          <label for="portfolioYear">Portfolio Year:</label>
-          <input type="number" id="portfolioYear" name="portfolioYear" required><br>
+          <label for="PortfolioYear">Portfolio Year:</label>
+          <input type="number" id="PortfolioYear" name="PortfolioYear" value="2023" required><br>
         </div>
       </div> 
       <div class="section" id="projectDetails">
         <h2>Project Details:</h2>
         <div class="form-group">
-          <label for="projectName">Project Name:</label>
-          <input type="text" id="projectName" name="projectName" required><br>
+          <label for="txtPPN">Project Name:</label>
+          <input type="text" id="txtPPN" name="txtPPN" value="IHOP" required><br>
         </div>
 
         <div class="form-group">
           <label for="txtStreet">Street Address:</label>
-          <input type="text" id="txtStreet" name="txtStreet" placeholder="123 Street"><br>
+          <input type="text" id="txtStreet" name="txtStreet" placeholder="647 E Colonial Dr" value="647 E Colonial Dr"><br>
+        </div>
+
+        <div class="form-group">
+          <label for="txtState">City:</label>
+          <input type="text" id="txtCity" name="txtCity" placeholder="Orlando" value="Orlando"><br>
         </div>
 
         <div class="form-group">
           <label for="txtState">State:</label>
-          <input type="text" id="txtState" name="txtState" placeholder="FL"><br>
+          <input type="text" id="txtState" name="txtState" placeholder="FL" value="FL"><br>
         </div>
 
         <div class="form-group">
           <label for="txtZIP">ZIP Code:</label>
-          <input type="number" id="txtZIP" name="txtZIP" placeholder="32751"><br>
-        </div>
-      </div>
-
-      <div class="section" id="metrics">
-        <h2>Metrics:</h2>
-        <div class="form-group">
-          <label for="txtUnder30">Units Below 30% AMI:</label>
-          <input type="number" id="txtUnder30" name="txtUnder30" step="1" required><br>
-        </div>
-        <div class="form-group">
-          <label for="txtUnder50">Units Below 50% AMI:</label>
-          <input type="number" id="txtUnder50" name="unitsBelow50AMI" step="1" required><br>
+          <input type="number" id="txtZIP" name="txtZIP" placeholder="32803" value="32803"><br>
         </div>
 
-        <div class="form-group">
-          <label for="txtUnder60">Units Below 60% AMI:</label>
-          <input type="number" id="txtUnder60" name="unitsBelow60AMI" step="1" required><br>
-        </div>
+        <div class="section" id="metrics">
+          <h2>Metrics:</h2>
+          <div class="form-group">
+            <label for="txtUnder30">Units Below 30% AMI:</label>
+            <input type="number" id="txtUnder30" name="txtUnder30" value="5" step="1" required><br>
+          </div>
+          <div class="form-group">
+            <label for="txtUnder50">Units Below 50% AMI:</label>
+            <input type="number" id="txtUnder50" name="txtUnder50" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtUnder80">Units Below 80% AMI:</label>
-          <input type="number" id="txtUnder80" name="unitsBelow80AMI" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtUnder60">Units Below 60% AMI:</label>
+            <input type="number" id="txtUnder60" name="txtUnder60" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtUnder120">Units Below 120% AMI:</label>
-          <input type="number" id="txtUnder120" name="unitsBelow120AMI" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtUnder80">Units Below 80% AMI:</label>
+            <input type="number" id="txtUnder80" name="txtUnder80" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtAbove120">Units Above 120% AMI:</label>
-          <input type="number" id="txtAbove120" name="unitsAbove120AMI" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtUnder120">Units Below 120% AMI:</label>
+            <input type="number" id="txtUnder120" name="txtUnder120" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtGovCash">Total Public Sources:</label>
-          <input type="number" id="txtGovCash" name="totalPublicSources" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtAbove120">Units Above 120% AMI:</label>
+            <input type="number" id="txtAbove120" name="txtAbove120" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtNoCmfClf">FCLF Cash:</label>
-          <input type="number" id="txtNoCmfClf" name="totalPrivateSources" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtGovCash">Total Public Sources:</label>
+            <input type="number" id="txtGovCash" name="txtGovCash" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtPrivCash">Other Private Sources:</label>
-          <input type="number" id="txtPrivCash" name="totalPrivateSources" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtNoCmfClf">FCLF Cash:</label>
+            <input type="number" id="txtNoCmfClf" name="txtNoCmfClf" value="5" step="1" required><br>
+          </div>
 
-        <div class="form-group">
-          <label for="txtCMFLoan">CMF Loan Amount:</label>
-          <input type="number" id="txtCMFLoan" name="txtCMFLoan" step="1" required><br>
-        </div>
+          <div class="form-group">
+            <label for="txtPrivCash">Other Private Sources:</label>
+            <input type="number" id="txtPrivCash" name="txtPrivCash" value="5" step="1" required><br>
+          </div>
 
-      </div>
-      <div class="submit-btn center">
-        <input type="submit" id="submit" class="button" value="Submit">
-      </div>
+          <div class="form-group">
+            <label for="txtCMFLoan">CMF Loan Amount:</label>
+            <input type="number" id="txtCMFLoan" name="txtCMFLoan" value="5" step="1" required><br>
+          </div>
+
+        </div>
+        <div class="submit-btn center">
+          <input type="submit" id="submit" class="button" value="Submit">
+        </div>
 
     </form>
 

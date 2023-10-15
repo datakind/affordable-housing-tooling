@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `Metrics`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Metrics` (
   `MetricID` int NOT NULL AUTO_INCREMENT,
-  `MetricName` varchar(255) NOT NULL,
+  `MetricName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`MetricID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -35,7 +35,7 @@ CREATE TABLE `Metrics` (
 
 LOCK TABLES `Metrics` WRITE;
 /*!40000 ALTER TABLE `Metrics` DISABLE KEYS */;
-INSERT INTO `Metrics` VALUES (1,'txtUnder30'),(2,'txtUnder50'),(3,'txtUnder60'),(4,'txtUnder80'),(5,'txtUnder120'),(6,'txtAbove120'),(7,'txtUnitCount'),(8,'txtPrivCash'),(9,'txtGovCash'),(10,'txtCMFLoan'),(11,'txtNoCmfClf');
+INSERT INTO `Metrics` VALUES (1,'txtUnder30'),(2,'txtUnder50'),(3,'txtUnder60'),(4,'txtUnder80'),(5,'txtUnder120'),(6,'txtAbove120'),(7,'txtNoCmfClf'),(8,'txtPrivCash'),(9,'txtGovCash'),(10,'txtCMFLoan');
 /*!40000 ALTER TABLE `Metrics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,6 +60,7 @@ CREATE TABLE `Portfolios` (
 
 LOCK TABLES `Portfolios` WRITE;
 /*!40000 ALTER TABLE `Portfolios` DISABLE KEYS */;
+INSERT INTO `Portfolios` VALUES (1,'CMF',2023);
 /*!40000 ALTER TABLE `Portfolios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,11 +72,11 @@ DROP TABLE IF EXISTS `ProjectMetrics`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ProjectMetrics` (
-  `MetricType` int DEFAULT NULL,
+  `MetricID` int DEFAULT NULL,
   `MetricValue` decimal(20,2) NOT NULL,
-  `ProjectName` varchar(255) DEFAULT NULL,
-  KEY `MetricID` (`MetricType`),
-  CONSTRAINT `ProjectMetrics_ibfk_2` FOREIGN KEY (`MetricType`) REFERENCES `Metrics` (`MetricID`)
+  `txtPPN` varchar(255) DEFAULT NULL,
+  KEY `MetricID` (`MetricID`),
+  CONSTRAINT `ProjectMetrics_ibfk_2` FOREIGN KEY (`MetricID`) REFERENCES `Metrics` (`MetricID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -85,6 +86,7 @@ CREATE TABLE `ProjectMetrics` (
 
 LOCK TABLES `ProjectMetrics` WRITE;
 /*!40000 ALTER TABLE `ProjectMetrics` DISABLE KEYS */;
+INSERT INTO `ProjectMetrics` VALUES (1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC');
 /*!40000 ALTER TABLE `ProjectMetrics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,8 +100,7 @@ DROP TABLE IF EXISTS `Projects`;
 CREATE TABLE `Projects` (
   `PortfolioID` int DEFAULT NULL,
   `txtPPN` varchar(255) NOT NULL,
-  `txtAddr1` varchar(255) NOT NULL,
-  `txtAddr2` varchar(255) DEFAULT '',
+  `txtStreet` varchar(255) DEFAULT NULL,
   `txtCity` varchar(255) NOT NULL,
   `txtState` char(2) NOT NULL,
   `txtZIP` int(5) unsigned zerofill NOT NULL,
@@ -114,6 +115,7 @@ CREATE TABLE `Projects` (
 
 LOCK TABLES `Projects` WRITE;
 /*!40000 ALTER TABLE `Projects` DISABLE KEYS */;
+INSERT INTO `Projects` VALUES (1,'ABC','123 Street','Orlando','FL',32751);
 /*!40000 ALTER TABLE `Projects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -126,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-15 14:58:06
+-- Dump completed on 2023-10-15 16:30:20
