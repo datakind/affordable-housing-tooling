@@ -49,7 +49,7 @@
 
 ## Images of the Whiteboard
 
-In case the clean-up crew visits on Saturday night:
+Just in case the clean-up crew visits on Saturday night.
 
 Original allocation of tasks:
 
