@@ -8,21 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-
-    <style>
-div{ background-color: lightgrey; width:100%; padding:5px}
-h1{color: #40a944; text-align: center;}
-p{ font-family: verdana;font-size: 20px;}
-.center {
-  display: flex;
-  justify-content: center;
-}
-      .button {
-        border: 3px solid green;
-        padding: 10px;
-      }
-    </style>
-
   </head>
   <body>
     <h1>Enter Project Details</h1>
@@ -54,92 +39,77 @@ p{ font-family: verdana;font-size: 20px;}
         </div>
 
         <div class="form-group">
-          <label for="address">Street Address:</label>
-          <input type="text" id="address" name="address" placeholder="123 Street"><br>
+          <label for="txtAddr1">Street Address:</label>
+          <input type="text" id="txtAddr1" name="txtAddr1" placeholder="123 Street"><br>
         </div>
 
         <div class="form-group">
-          <label for="address">City:</label>
-          <input type="text" id="address" name="address" placeholder="Orlando"><br>
+          <label for="txtCity">City:</label>
+          <input type="text" id="txtCity" name="txtCity" placeholder="Orlando"><br>
         </div>
 
         <div class="form-group">
-          <label for="address">State:</label>
-          <input type="text" id="address" name="address" placeholder="FL"><br>
+          <label for="txtState">State:</label>
+          <input type="text" id="txtState" name="txtState" placeholder="FL"><br>
         </div>
 
         <div class="form-group">
-          <label for="address">ZIP Code:</label>
-          <input type="number" id="address" name="address" placeholder="32751"><br>
-        </div>
-
-        <div class="form-group">
-          <label for="censusTract">Census Tract:</label>
-          <input type="number" id="censusTract" name="censusTract" required><br>
-        </div>
-
-        <div class="form-group">
-          <label for="areaOfEconomicDistress">Area Of Economic Distress:</label>
-          <input type="checkbox" id="areaOfEconomicDistress" name="areaOfEconomicDistress" value="Y">Yes
-        </div>
-
-        <div class="form-group">
-          <label for="totalProjectCost">Total Project Cost:</label>
-          <input type="number" id="totalProjectCost" name="totalProjectCost" required><br>
+          <label for="txtZIP">ZIP Code:</label>
+          <input type="number" id="txtZIP" name="txtZIP" placeholder="32751"><br>
         </div>
       </div>
 
       <div class="section" id="metrics">
         <h2>Metrics:</h2>
         <div class="form-group">
-          <label for="unitsBelow30AMI">Units Below 30% AMI:</label>
-          <input type="number" id="unitsBelow30AMI" name="unitsBelow30AMI" ste1" required><br>
+          <label for="txtUnder30">Units Below 30% AMI:</label>
+          <input type="number" id="txtUnder30" name="txtUnder30" step="1" required><br>
+        </div>
+        <div class="form-group">
+          <label for="txtUnder50">Units Below 50% AMI:</label>
+          <input type="number" id="txtUnder50" name="unitsBelow50AMI" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="unitsBelow50AMI">Units Below 50% AMI:</label>
-          <input type="number" id="unitsBelow50AMI" name="unitsBelow50AMI" step="1" required><br>
+          <label for="txtUnder60">Units Below 60% AMI:</label>
+          <input type="number" id="txtUnder60" name="unitsBelow60AMI" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="unitsBelow60AMI">Units Below 60% AMI:</label>
-          <input type="number" id="unitsBelow60AMI" name="unitsBelow60AMI" step="1" required><br>
+          <label for="txtUnder80">Units Below 80% AMI:</label>
+          <input type="number" id="txtUnder80" name="unitsBelow80AMI" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="unitsBelow80AMI">Units Below 80% AMI:</label>
-          <input type="number" id="unitsBelow80AMI" name="unitsBelow80AMI" step="1" required><br>
+          <label for="txtUnder120">Units Below 120% AMI:</label>
+          <input type="number" id="txtUnder120" name="unitsBelow120AMI" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="unitsBelow120AMI">Units Below 120% AMI:</label>
-          <input type="number" id="unitsBelow120AMI" name="unitsBelow120AMI" step="1" required><br>
+          <label for="txtAbove120">Units Above 120% AMI:</label>
+          <input type="number" id="txtAbove120" name="unitsAbove120AMI" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="unitsAbove120AMI">Units Above 120% AMI:</label>
-          <input type="number" id="unitsAbove120AMI" name="unitsAbove120AMI" step="1" required><br>
+          <label for="txtGovCash">Total Public Sources:</label>
+          <input type="number" id="txtGovCash" name="totalPublicSources" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="totalNumberOfUnits">Total Number of Units:</label>
-          <input type="number" id="totalNumberOfUnits" name="totalNumberOfUnits" step="1" required><br>
+          <label for="txtNoCmfClf">FCLF Cash:</label>
+          <input type="number" id="txtNoCmfClf" name="totalPrivateSources" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="totalPrivateSources">Total Private Sources:</label>
-          <input type="number" id="totalPrivateSources" name="totalPrivateSources" step="1" required><br>
+          <label for="txtPrivCash">Other Private Sources:</label>
+          <input type="number" id="txtPrivCash" name="totalPrivateSources" step="1" required><br>
         </div>
 
         <div class="form-group">
-          <label for="totalPublicSources">Total Public Sources:</label>
-          <input type="number" id="totalPublicSources" name="totalPublicSources" step="1" required><br>
+          <label for="txtCMFLoan">CMF Loan Amount:</label>
+          <input type="number" id="txtCMFLoan" name="txtCMFLoan" step="1" required><br>
         </div>
 
-        <div class="form-group">
-          <label for="cmfLoanAmount">CMF Loan Amount:</label>
-          <input type="number" id="cmfLoanAmount" name="cmfLoanAmount" step="1" required><br>
-        </div>
       </div>
       <div class="submit-btn center">
         <input type="submit" id="submit" class="button" value="Submit">
