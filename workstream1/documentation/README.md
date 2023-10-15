@@ -284,3 +284,14 @@ Initial list of fields in test cases and web form:
 Sketch of UI for grant applications:
 
 <img src="Images/housing_tool_whiteboard_6.jpg" width="500"/>
+
+To-do list for day 2:
+
+<img src="Images/housing_tool_whiteboard_7.jpg" width="500"/>
+
+Some of these items were completed but some remain
+as a sketch of the strategy. 
+Proposals are documented in the README files 
+in various folders within this repository. 
+Progress and remaining questions are also documented
+in the Activity table within the google doc for the project brief.
