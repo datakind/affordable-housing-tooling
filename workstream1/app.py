@@ -74,6 +74,50 @@ def index():
                 metric,
             )
 
+        # Calculate the total project cost
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID = 7 THEN MetricValue ELSE 0 END) 
+                + SUM(CASE WHEN MetricID = 8 THEN MetricValue ELSE 0 END)
+                + SUM(CASE WHEN MetricID = 9 THEN MetricValue ELSE 0 END) AS TotalProjectCost
+            FROM ProjectMetrics;
+            """
+        )
+        total_cost = cur.fetchone()
+
+        # Calculate the total number of units
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2, 3, 4, 5, 6) THEN MetricValue ELSE 0 END) AS TotalUnits
+            FROM ProjectMetrics;
+            """
+        )
+        total_units = cur.fetchone()
+
+        # Calculate the total number of units for very low income families
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2) THEN MetricValue ELSE 0 END) AS VeryLowIncomeUnits
+            FROM ProjectMetrics;
+            """
+        )
+        very_low_income_units = cur.fetchone()
+
+        # Calculate the total number of units for low income families
+        cur.execute(
+            """
+            SELECT 
+                SUM(CASE WHEN MetricID IN (1, 2, 3, 4) THEN MetricValue ELSE 0 END) AS LowIncomeUnits
+            FROM ProjectMetrics;
+            """
+        )
+        low_income_units = cur.fetchone()
+
+        requirements = []
+
         # 1. Check for 45% Very Low Income Families
         cur.execute(
             """
@@ -86,10 +130,9 @@ def index():
         )
         result = cur.fetchone()
         if result[0] < 45:
-            print(
+            requirements.append(
                 "Failed Requirement: Less than 45% of rental affordable housing units for Very Low Income Families."
             )
-
         # 2. Check for total project cost being 10x the CMF award
         cur.execute(
             """
@@ -103,10 +146,9 @@ def index():
         )
         result = cur.fetchone()
         if result[0] < 1:
-            print(
+            requirements.append(
                 "Failed Requirement: Total project cost is not 10x the amount of the CMF award."
             )
-
         # 3. Check for 60% in Areas of Economic Distress
 
         # 4. Check for each project having 20% for Low Income Families
@@ -123,7 +165,7 @@ def index():
         projects = cur.fetchall()
         for project in projects:
             if project[1] < 20:
-                print(
+                requirements.append(
                     f"Project {project[0]} Failed Requirement: Less than 20% of affordable housing units for Low Income Families."
                 )
 
@@ -131,7 +173,14 @@ def index():
         conn.commit()
         cur.close()
 
-        return "success"
+        return render_template(
+            "success.html",
+            total_cost=total_cost,
+            total_units=total_units,
+            very_low_income_units=very_low_income_units,
+            low_income_units=low_income_units,
+            requirements=requirements
+        )
     return render_template("form.html")
 
 
