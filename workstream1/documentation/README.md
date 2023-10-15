@@ -5,11 +5,8 @@
 - ```txtPPN```	is the name of the proposed project. 
   It must be a string without spaces nor special characters.
 
-- ```txtAddr1```	is the first line of the address of the proposed building. 
+- ```txtSTreet```	is the street line of the address of the proposed building. 
   It must be a nonempty string. 
-
-- ```txtAddr2```	is the second line of the address of the proposed building. 
-  It must be a string but could be empty. 
 
 - ```txtCity```	is the city in which the proposed building is located. 
   It must be a nonempty string. 
