@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, request, render_template
 import mariadb
 
@@ -13,6 +14,33 @@ config = {
     "database": "CMFPortfolio",
 }
 
+def get_tract_number(street, city, state, zipcode):
+    address = f"{street}, {city}, {state} {zipcode}"
+    base_url = (
+        "https://geocoding.geo.census.gov/geocoder/locations/"
+        "address?street=" + address + "&benchmark=Public_AR_Census2020&format=json"
+    )
+    parameters = {
+        "street": address,
+        "benchmark": "Public_AR_Census2020",
+        "format": "json",
+    }
+    print("Address = " + address + "\n  ")
+    response = requests.get(base_url, params=parameters)
+    if response.status_code == 200:
+        data = response.json()
+        if data.get("result", {}).get("addressMatches"):
+            tract = (
+                data["result"]["addressMatches"][0]
+                .get("geographies", {})
+                .get("Census Tracts", [{}])[0]
+                .get("TRACT", "")
+            )
+            return tract
+    else:
+        print("API failed.")
+        print(response.content)
+    return None
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -46,6 +74,15 @@ def index():
             (9, form_data["txtGovCash"], form_data["txtPPN"]),
             (10, form_data["txtCMFLoan"], form_data["txtPPN"]),
         ]
+
+        # Fetch the tract number using the address details
+        tract_number = get_tract_number(
+            form_data["txtStreet"],
+            form_data["txtCity"],
+            form_data["txtState"],
+            form_data["txtZIP"]
+        )
+        print(f"Tract number: {tract_number}")
 
         # Connect to MariaDB
         conn = mariadb.connect(**config)
