@@ -96,6 +96,49 @@ above 120 percent of the AMI.
 
 
 
+# Constraints on Grant Allocation
+
+## Conditions for Eligibility of Individual Projects
+
+To be eligible for funding from the Capital Magnet Fund (CMF), 
+the project must satisfy the following conditions:
+  
+  1. Twenty percent of affordable housing units in trhe proposed development project must be designated for rentals for Low Income Families.
+That is, the sum of ```txtUnder30``` and ```txtUnder50```
+must comprise at least 20 percent 
+of the number of units in ```txtUnitCount```.
+
+
+## Constraints on the Portfolio of Grants Allocated
+
+At the time of an allocation of a CMF grant to a project, 
+the portfolio of loans must satisfy the following conditions.
+
+1. Forty-five percent of rental affordable housing units
+must be designated for rental to families 
+in the "Very Low Income" category. 
+That is, the sum of ```txtUnder30``` and ```txtUnder50```
+across all projects in the portfolio
+must be more than 45 percent of the sum of ```txtUnitCount```
+across all projects in the portfolio. 
+
+1. The sum of the total project cost 
+aggregated across all projects in the portfolio
+must be ten times the sum of the CMF awards across the portfolio. 
+For example, an award of one million dollars in CMF funding
+would be the maximum funding permissible
+for a portfolio for which the sum of the 
+total project cost adds to ten million dollars.
+
+1. Sixty percent of rental affordable housing units 
+must be located in either Areas of Economic Distress or High-Opportunity Areas for Eligible-Income Families. 
+That is, the sum of ```txtUnitCount```
+aggregated across all projects in the portfolio 
+must be located in Census Tract Areas that are designated
+as either Areas of Economic Distress or High-Opportunity Areas for Eligible-Income Families. 
+
+
+
 # Images of the Whiteboard
 
 Just in case the clean-up crew visits on Saturday night.
