@@ -35,16 +35,16 @@ def index():
         )
 
         metrics_data = [
-            (1, form_data["txtUnder30"], form_data["projectName"]),
-            (2, form_data["txtUnder50"], form_data["projectName"]),
-            (3, form_data["txtUnder60"], form_data["projectName"]),
-            (4, form_data["txtUnder80"], form_data["projectName"]),
-            (5, form_data["txtUnder120"], form_data["projectName"]),
-            (6, form_data["txtAbove120"], form_data["projectName"]),
-            (7, form_data["txtNoCmfClf"], form_data["projectName"]),
-            (8, form_data["txtPrivCash"], form_data["projectName"]),
-            (9, form_data["txtGovCash"], form_data["projectName"]),
-            (10, form_data["txtCMFLoan"], form_data["projectName"]),
+            (1, form_data["txtUnder30"], form_data["txtPPN"]),
+            (2, form_data["txtUnder50"], form_data["txtPPN"]),
+            (3, form_data["txtUnder60"], form_data["txtPPN"]),
+            (4, form_data["txtUnder80"], form_data["txtPPN"]),
+            (5, form_data["txtUnder120"], form_data["txtPPN"]),
+            (6, form_data["txtAbove120"], form_data["txtPPN"]),
+            (7, form_data["txtNoCmfClf"], form_data["txtPPN"]),
+            (8, form_data["txtPrivCash"], form_data["txtPPN"]),
+            (9, form_data["txtGovCash"], form_data["txtPPN"]),
+            (10, form_data["txtCMFLoan"], form_data["txtPPN"]),
         ]
 
         # Connect to MariaDB
@@ -64,7 +64,7 @@ def index():
 
         # Insert the new project
         cur.execute(
-            "INSERT INTO Projects(PortfolioID, txtPPN, txtAddr1, txtAddr2, txtCity, txtState, txtZIP) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+            "INSERT INTO Projects(PortfolioID, txtPPN, txtStreet, txtCity, txtState, txtZIP) VALUES (%s, %s, %s, %s, %s, %s)",
             project_data,
         )
 
