@@ -14,24 +14,25 @@ from the the [CMF tool](https://docs.google.com/spreadsheets/d/1qOzzP9Gyhl86o2OP
 gives a warning message if the ```txtPPN``` 
 field is either an empty string or a number. 
 
-1. The next case tests whether the address fields are empty. 
+1. The next case tests whether the user interface 
+gives a warning message if the first address field is empty. 
 
 1. The next four cases test whether 
 the ```City``` and ```State``` 
 cause the user interface to give a warning message 
-when the fields are, respectively,
+if each of the fields are, respectively,
 empty strings or numbers. 
 
 1. The next ten cases test whether the 
 amounts of financing 
 cause the user interface to give a warning message 
-whe the fields are, respectively,
+if each of the fields are
 strings, whether empty or otherwise. 
 
 1. The next sixteen cases test whether the 
 counts of the number of units
 cause the user interface to give a warning message 
-whe the fields are, respectively,
+if each of the fields are
 strings, whether empty or otherwise. 
 
 
@@ -85,6 +86,7 @@ in the various income categories.
 
 1. ```OHA``` is based on the project "OHA" 
 from the CMF tool. 
+  This project tests the lower bound for...
 
 1. ```PBF``` is based on the project "PBF" 
 from the CMF tool. 
