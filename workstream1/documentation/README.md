@@ -238,13 +238,14 @@ across all projects in the portfolio
 must be more than 45 percent of the sum of ```txtUnitCount```
 across all projects in the portfolio. 
 
-1. The sum of the total project cost 
+1. The sum of the *total project cost* 
 aggregated across all projects in the portfolio
 must be ten times the sum of the CMF awards across the portfolio. 
 For example, an award of one million dollars in CMF funding
 would be the maximum funding permissible
 for a portfolio for which the sum of the 
 total project cost adds to ten million dollars.
+*Note that the constraint on this multiplier is based on total project cost, which includes funds from state or local governments, even though the CMF tool calculates a multiplier that is the ratio of private funding to CMF funding, which is also a useful metric.*
 
 1. Sixty percent of rental affordable housing units 
 must be located in either Areas of Economic Distress or High-Opportunity Areas for Eligible-Income Families. 
