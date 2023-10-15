@@ -8,16 +8,16 @@
 - ```txtAddr1```	is the first line of the address of the proposed building. 
   It must be a nonempty string. 
 
-```txtAddr2```	is the second line of the address of the proposed building. 
+- ```txtAddr2```	is the second line of the address of the proposed building. 
   It must be a string but could be empty. 
 
-```txtCity```	is the city in which the proposed building is located. 
+- ```txtCity```	is the city in which the proposed building is located. 
   It must be a nonempty string. 
 
-```txtState```	is the acronym for the state in which the proposed building is located. 
+- ```txtState```	is the acronym for the state in which the proposed building is located. 
   It must be a nonempty string comprising two upper-case letters, which could be defined by a drop-down menu. 
 
-```txtZIP```	is the ZIP code in which the proposed building is located. 
+- ```txtZIP```	is the ZIP code in which the proposed building is located. 
   It must be a positive integer five digits long
   and, preferably, a valid ZIP code. 
 
@@ -25,25 +25,25 @@
 ## Financing information
 
 
-```txtTotProjCost```	is the total projected cost of the building project. 
+- ```txtTotProjCost```	is the total projected cost of the building project. 
   It must be a positive integer. 
 
-```txtNoCmfClf```		is the amount of financing for the project
+- ```txtNoCmfClf```		is the amount of financing for the project
 obtained from the Florida Community Loan Fund (FCLF),
 from sources other than the Capital Magnet Fund (CMF) for which this application is filed. 
   It must be a positive integer less than ```txtTotProjCost```. 
 
-```txtPrivCash```		is the amount of financing for the project
+- ```txtPrivCash```		is the amount of financing for the project
 obtained from other private sources of financing. 
   It must be a positive integer less than ```txtTotProjCost```.
 
-```txtGovCash```		is the amount of financing for the project
+- ```txtGovCash```		is the amount of financing for the project
 obtained from government sources other than
 the Florida Community Loan Fund (FCLF)
 and the Capital Magnet Fund (CMF) for which this application is filed. 
   It must be a positive integer less than ```txtTotProjCost```. 
 
-```txtCMFLoan```		is the remaining amount of financing for the project obtained from the Capital Magnet Fund (CMF) 
+- ```txtCMFLoan```		is the remaining amount of financing for the project obtained from the Capital Magnet Fund (CMF) 
 for which this application is filed. 
   It must be a positive integer less than ```txtTotProjCost```.
   Furthermore, the sum of 
@@ -54,35 +54,35 @@ for which this application is filed.
 ## Inventory of Units
 
 
-```txtUnitCount```	is the total number of housing units in the proposed housing development. 
+- ```txtUnitCount```	is the total number of housing units in the proposed housing development. 
   It must be a positive integer. 
 
-```txtUnder30```	is the total number of housing units in the proposed housing development 
+- ```txtUnder30```	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 below 30 percent of the Area Median Income (AMI). 
   It must be a positive integer less than ```txtUnitCount```. 
 
-```txtUnder50```	is the total number of housing units in the proposed housing development 
+- ```txtUnder50```	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 30 percent and 50 percent of the AMI. 
   It must be a positive integer less than ```txtUnitCount```. 
 
-```txtUnder60```		is the total number of housing units in the proposed housing development 
+- ```txtUnder60```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 50 percent and 60 percent of the AMI. 
   It must be a positive integer less than ```txtUnitCount```. 
 
-```txtUnder80```		is the total number of housing units in the proposed housing development 
+- ```txtUnder80```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 60 percent and 80 percent of the AMI. 
   It must be a positive integer less than ```txtUnitCount```. 
 
-```txtUnder120```		is the total number of housing units in the proposed housing development 
+- ```txtUnder120```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 80 percent and 120 percent of the AMI. 
   It must be a positive integer less than ```txtUnitCount```. 
 
-```txtAbove120``` 	is the total number of housing units in the proposed housing development 
+- ```txtAbove120``` 	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 above 120 percent of the AMI. 
   It must be a positive integer less than ```txtUnitCount```. 
