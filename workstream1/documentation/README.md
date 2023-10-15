@@ -46,7 +46,8 @@ and the Capital Magnet Fund (CMF) for which this application is filed.
 - ```txtCMFLoan```		is the remaining amount of financing for the project obtained from the Capital Magnet Fund (CMF) 
 for which this application is filed. 
   It must be a positive integer less than ```txtTotProjCost```.
-  Furthermore, the sum of 
+  
+Furthermore, the sum of 
   ```txtNoCmfClf```, ```txtPrivCash```, ```txtGovCash```, 
   and ```txtCMFLoan``` must equal ```txtTotProjCost```.
 
@@ -60,34 +61,40 @@ for which this application is filed.
 - ```txtUnder30```	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 below 30 percent of the Area Median Income (AMI). 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
 - ```txtUnder50```	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 30 percent and 50 percent of the AMI. 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
 - ```txtUnder60```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 50 percent and 60 percent of the AMI. 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
 - ```txtUnder80```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 60 percent and 80 percent of the AMI. 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
 - ```txtUnder120```		is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 between 80 percent and 120 percent of the AMI. 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
 - ```txtAbove120``` 	is the total number of housing units in the proposed housing development 
 that will be rented to families with incomes 
 above 120 percent of the AMI. 
-  It must be a positive integer less than ```txtUnitCount```. 
+  It must be a positive integer less than 
+  or equal to ```txtUnitCount```. 
 
-  Furthermore, the sum of 
+Furthermore, the sum of 
   ```txtUnder30```, ```txtUnder50```, ```txtUnder60```, 
   ```txtUnder80```, ```txtUnder120```, 
   and ```txtAbove120``` must equal ```txtUnitCount```.
