@@ -86,7 +86,7 @@ CREATE TABLE `ProjectMetrics` (
 
 LOCK TABLES `ProjectMetrics` WRITE;
 /*!40000 ALTER TABLE `ProjectMetrics` DISABLE KEYS */;
-INSERT INTO `ProjectMetrics` VALUES (1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC');
+INSERT INTO `ProjectMetrics` VALUES (1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'ABC'),(2,5.00,'ABC'),(3,5.00,'ABC'),(4,5.00,'ABC'),(5,5.00,'ABC'),(6,5.00,'ABC'),(7,5.00,'ABC'),(8,5.00,'ABC'),(9,5.00,'ABC'),(10,5.00,'ABC'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP'),(1,5.00,'IHOP'),(2,5.00,'IHOP'),(3,5.00,'IHOP'),(4,5.00,'IHOP'),(5,5.00,'IHOP'),(6,5.00,'IHOP'),(7,5.00,'IHOP'),(8,5.00,'IHOP'),(9,5.00,'IHOP'),(10,5.00,'IHOP');
 /*!40000 ALTER TABLE `ProjectMetrics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +115,7 @@ CREATE TABLE `Projects` (
 
 LOCK TABLES `Projects` WRITE;
 /*!40000 ALTER TABLE `Projects` DISABLE KEYS */;
-INSERT INTO `Projects` VALUES (1,'ABC','123 Street','Orlando','FL',32751);
+INSERT INTO `Projects` VALUES (1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'ABC','123 Street','Orlando','FL',32751),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803),(1,'IHOP','647 E Colonial Dr','Orlando','FL',32803);
 /*!40000 ALTER TABLE `Projects` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -128,4 +128,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-15 16:30:20
+-- Dump completed on 2023-10-15 17:20:25
