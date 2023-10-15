@@ -9,16 +9,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-# Function to extract address from a local HTML file
-def extract_address_from_html(html_file):
+# Function to extract address components from a local HTML file
+def extract_address_components_from_html(html_file):
     with open(html_file, 'r') as file:
         html_content = file.read()
     soup = BeautifulSoup(html_content, 'html.parser')
-    address_element = soup.find('p')
-    if address_element:
-        return address_element.text.strip()
-    else:
-        return None
+    street_address = soup.find('input', {'id': 'streetAddress'}).get('value', '')
+    city = soup.find('input', {'id': 'city'}).get('value', '')
+    state = soup.find('input', {'id': 'state'}).get('value', '')
+    zip_code = soup.find('input', {'id': 'zipCode'}).get('value', '')
+    return street_address, city, state, zip_code
 
 # Function to geocode an address and retrieve the "tract" number
 def get_tract_number(address):
@@ -40,14 +40,21 @@ def get_tract_number(address):
 # Main script
 if __name__ == '__main__':
     html_file = "C:\\Users\\cmk13\\Desktop\\HousingDatakind\\Web\\form.html"  # Replace with the path to your HTML file
-    address = extract_address_from_html(html_file)
+    street_address, city, state, zip_code = extract_address_components_from_html(html_file)
 
-    if address:
-        tract = get_tract_number(address)
+    if street_address and city and state and zip_code:
+        print("Street Address:", street_address)
+        print("City:", city)
+        print("State:", state)
+        print("ZIP Code:", zip_code)
+
+        # Combine the components to form the complete address
+        complete_address = f"{street_address}, {city}, {state} {zip_code}"
+        tract = get_tract_number(complete_address)
+
         if tract:
-            print("Address:", address)
             print("Tract:", tract)
         else:
             print("Tract number not found for the address.")
     else:
-        print("Address not found in the HTML file.")
+        print("Address components not found in the HTML file.")
