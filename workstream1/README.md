@@ -50,7 +50,7 @@ Before you begin, make sure you have the following installed on your system:
 
 ## Running the Application
 
-To run the Workstream 1 application, use the following command from the `workstream1` directory:
+To run the Workstream 1 application, set up the sql server using the cmfportfolio.sql file and use the following command from the `workstream1` directory:
 
 ```bash
 python app.py
