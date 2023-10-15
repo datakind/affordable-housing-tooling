@@ -1,6 +1,8 @@
-import requests
-from flask import Flask, request, render_template
 import mariadb
+import pandas as pd
+import requests
+
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -13,6 +15,21 @@ config = {
     "password": "new_password",
     "database": "CMFPortfolio",
 }
+
+
+def is_distressed_area(tract):
+    # Read the CSV
+    df = pd.read_csv("data/orange_county_qct.csv")
+
+    # Find the tract
+    tract_row = df[df["tract"] == int(tract)]
+
+    # If tract not found, return None
+    if tract_row.empty:
+        return None
+
+    # Return the qct value
+    return int(tract_row["qct"].values[0])
 
 
 def get_tract_number(street, city, state, zipcode):
@@ -88,6 +105,19 @@ def index():
             form_data["txtZIP"],
         )
         print(f"Tract number: {tract_number}")
+
+        # Check if tract is in an economically distressed area
+        distressed_status = is_distressed_area(tract_number)
+
+        # If tract number is not in the CSV
+        if distressed_status is None:
+            print("Tract number not found in CSV.")
+        else:
+            # Print the status
+            if distressed_status == 1:
+                print("The tract is in an economically distressed area.")
+            else:
+                print("The tract is NOT in an economically distressed area.")
 
         # Connect to MariaDB
         conn = mariadb.connect(**config)
@@ -175,6 +205,7 @@ def index():
             requirements.append(
                 "Failed Requirement: Less than 45% of rental affordable housing units for Very Low Income Families."
             )
+
         # 2. Check for total project cost being 10x the CMF award
         cur.execute(
             """
@@ -191,7 +222,8 @@ def index():
             requirements.append(
                 "Failed Requirement: Total project cost is not 10x the amount of the CMF award."
             )
-        # 3. Check for 60% in Areas of Economic Distress
+
+        # TODO: 3. Check for 60% in Areas of Economic Distress
 
         # 4. Check for each project having 20% for Low Income Families
         cur.execute(
@@ -221,6 +253,8 @@ def index():
             total_units=total_units,
             very_low_income_units=very_low_income_units,
             low_income_units=low_income_units,
+            tract_number=tract_number,
+            distressed_status=distressed_status,
             requirements=requirements,
         )
     return render_template("form.html")
