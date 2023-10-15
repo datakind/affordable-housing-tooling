@@ -104,20 +104,21 @@ Furthermore, the sum of
 
 ## Current Procedure
 
-1. Enter data from pdf document into project template worksheet.
-1. Copy project worksheet into CMF spreadsheet. 
-1. Calculate criteria for correct data entry
-and verify said conditions for correct data entry.
-a. Sum of financing sources 
+1. Enter the fields from the pdf application form 
+into the project template worksheet.
+1. Copy the project worksheet into the CMF spreadsheet. 
+1. Calculate the criteria for valid data entry
+and verify said conditions for valid data entry.
+a. Verify that the sum of financing sources 
 ```txtNoCmfClf```, ```txtPrivCash```, ```txtGovCash```, 
   and ```txtCMFLoan``` 
   is equal to the total project cost, ```txtTotProjCost```.
-a. Sum of the sum of the allocation of housing units to
-the income categories
+a. Verify that the sum of the sum of the 
+allocation of housing units to the income categories
   ```txtUnder30```, ```txtUnder50```, ```txtUnder60```, 
   ```txtUnder80```, ```txtUnder120```, 
   and ```txtAbove120``` equals ```txtUnitCount```.
-1. Calculate criteria for project eligibility
+1. Calculate the criteria for project eligibility
 and verify said conditions for eligibility. 
 1. Perform a search for the Census Tract Identifier
 from the address at which the proposed development is to be constructed. 
@@ -149,11 +150,12 @@ of the portfolio of grants to include the newly approved project.
 ### Web Form
 
 This method is intended to be used to enter 
-project information 
-During a testing phase, the data could be copied manually
-from pdf forms submitted as applications for grants. 
+project information from one funding application
+for a single development project.
+During phase-in period, the data could be copied manually
+from the pdf forms submitted as applications for grants. 
 This is still a manual process but it avoids
-copying project parameters and calculation 
+copying project parameters and avoids the manual calculation 
 of data validity conditions, eligibility criteria, 
 and portfolio constraints, 
 as well as any manual data collection that is required for
@@ -161,29 +163,32 @@ such calculations.
 
 In production, the web form could also be hosted on the public webpage of either the city or the
 local granting agency so that applicants
-can enter their own data. 
-
+can enter the data for their own development proposal. 
 The advantage of the live version is that potential applicants
 will immediately notice data entry errors
 and will be alerted to violations of eligibility constraints before submission. 
 This will provide value in that applicants will avoid delays
-in terms of the wait for denial as a result of 
-violation of eligibility criteria, 
-as well as conditions for valid data entry.
-Furthermore, the application will immediately
+or lost investment opportunities
+during the wait for a denial that results from 
+violations of eligibility criteria  
+or conditions for valid data entry.
+Furthermore, once an application meets the initial screening criteria, 
+the application will immediately
 be loaded into the database for consideration by 
 the financing officer. 
 
 
-1. The user enters project parameters into the text boxes
+1. The user enters the project parameters into the text boxes
 in the web form. 
-1. As the fields are completed, once the user moves to the next field, 
+1. After each field is completed, once the user moves to the next field, 
 the data validity conditions are checked.
 Then, all data checks and eligibility checks are updated
-for the project. 
+for the project and these results appear in 
+a summary that is displayed in the 
+right pane of the web form. 
 1. When the form is complete, the user clicks "Submit", 
 and the fields from the web form 
-are loaded into a new record in the project database.
+are loaded as a new record in the project database.
 
 
 
@@ -192,7 +197,8 @@ are loaded into a new record in the project database.
 This procedure is intended to be used for batch uploads of 
 several applications at once.
 It can also be used to initialize a database with
-the current portfolio of both approved and rejected projects. 
+the current portfolio of both approved projects, 
+rejected projects, and projects eligible for a decision. 
 
 1. Enter project parameters into columns of a spreadsheet
 in csv format, with each row representing a separate project.
@@ -213,7 +219,7 @@ and inserted as new records in the database of projects.
 To be eligible for funding from the Capital Magnet Fund (CMF), 
 the project must satisfy the following conditions:
   
-  1. Twenty percent of affordable housing units in trhe proposed development project must be designated for rentals for Low Income Families.
+  1. Twenty percent of affordable housing units in the proposed development project must be designated for rentals for Low Income Families.
 That is, the sum of ```txtUnder30``` and ```txtUnder50```
 must comprise at least 20 percent 
 of the number of units in ```txtUnitCount```.
