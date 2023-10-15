@@ -14,19 +14,21 @@ config = {
     "database": "CMFPortfolio",
 }
 
+
 def get_tract_number(street, city, state, zipcode):
     address = f"{street}, {city}, {state} {zipcode}"
-    base_url = (
-        "https://geocoding.geo.census.gov/geocoder/locations/"
-        "address?street=" + address + "&benchmark=Public_AR_Census2020&format=json"
-    )
+    base_url = "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress"
+
     parameters = {
-        "street": address,
+        "address": address,
         "benchmark": "Public_AR_Census2020",
+        "vintage": "Census2010_Census2020",
         "format": "json",
     }
-    print("Address = " + address + "\n  ")
+
+    print("Address = " + address + "\n")
     response = requests.get(base_url, params=parameters)
+
     if response.status_code == 200:
         data = response.json()
         if data.get("result", {}).get("addressMatches"):
@@ -39,8 +41,11 @@ def get_tract_number(street, city, state, zipcode):
             return tract
     else:
         print("API failed.")
-        print(response.content)
+        print(
+            response.content
+        )  # This will print the content of the response, which might contain error details.
     return None
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -80,7 +85,7 @@ def index():
             form_data["txtStreet"],
             form_data["txtCity"],
             form_data["txtState"],
-            form_data["txtZIP"]
+            form_data["txtZIP"],
         )
         print(f"Tract number: {tract_number}")
 
@@ -216,7 +221,7 @@ def index():
             total_units=total_units,
             very_low_income_units=very_low_income_units,
             low_income_units=low_income_units,
-            requirements=requirements
+            requirements=requirements,
         )
     return render_template("form.html")
 
