@@ -268,6 +268,17 @@ Flow chart of applications (sketch):
 
 <img src="Images/housing_tool_whiteboard_2.jpg" width="500"/>
 
+Note that the order of operations was later modified, 
+since data validity and eligibility criteria 
+are checked first, 
+before projects are added to the set of 
+eligible projects. 
+In the next stage, 
+provided the projects are within budget, 
+the financial officer would 
+rank the projects and approve projects for CMF grants.
+
+
 Definition of "Very Low Income":
 
 <img src="Images/housing_tool_whiteboard_3.jpg" width="500"/>
@@ -285,13 +296,57 @@ Sketch of UI for grant applications:
 
 <img src="Images/housing_tool_whiteboard_6.jpg" width="500"/>
 
+Note that this preliminary version only covers
+projects with a single building. 
+A proposal for features that would handle multi-building
+projects is detailed below. 
+Also, the preliminary version of the web form
+performs calculations after the user submits the page, 
+which then redirects to a summary page with the calculated
+metrics and eligibility criteria. 
+Later version can perform data checks and eligibility checks
+live, as soon as the individual fields are entered, 
+so that the applicant immediately sees that the 
+data validity and eligibility criteria are satisfied. 
+
+
+
 To-do list for day 2:
 
 <img src="Images/housing_tool_whiteboard_7.jpg" width="500"/>
 
+Proposal for added feature: add functionality for multi-building projects. Application starts at a splash page
+on which applicant enters project information, 
+including the sources of financing. 
+
+<img src="Images/housing_tool_whiteboard_8.jpg" width="500"/>
+
+This page includes a button to add or delete buildings. 
+For an added building, the applicant clicks a button to 
+complete the information sheet for each building, which is the simpler version prototyped above. 
+For each building, the applicant enters the address, 
+which is used to look up the status as an 
+Area of Economic Distress, which may be different for buildings bordering a Census tract. 
+The main data entry task on this page is the distribution 
+of units across the designations of rental to families within
+the income categories. 
+
+<img src="Images/housing_tool_whiteboard_9.jpg" width="500"/>
+
+
+Once the applicant completes the page for the building, 
+and presses the "Submit" button,
+the data-entry checks are performed on this page 
+and the total counts of units are accumulated in a panel
+back on the splash page covering the entire project. 
+
+
+## Next Steps
+
 Some of these items were completed but some remain
-as a sketch of the strategy. 
+as a sketch of the strategy for building out these features. 
 Proposals are documented in the README files 
 in various folders within this repository. 
 Progress and remaining questions are also documented
-in the Activity table within the google doc for the project brief.
+in the Activity table within the 
+[google doc for the project brief](https://docs.google.com/document/d/1FWQMIgPJqb0235BIkKMO6CU1JqtRGN7CnQolky6jmOo/edit).
