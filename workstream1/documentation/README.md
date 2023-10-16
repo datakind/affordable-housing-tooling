@@ -170,7 +170,7 @@ and will be alerted to violations of eligibility constraints before submission.
 This will provide value in that applicants will avoid delays
 or lost investment opportunities
 during the wait for a denial that results from 
-violations of eligibility criteria  
+violations of eligibility criteria 
 or conditions for valid data entry.
 Furthermore, once an application meets the initial screening criteria, 
 the application will immediately
@@ -190,6 +190,14 @@ right pane of the web form.
 and the fields from the web form 
 are loaded as a new record in the project database.
 
+
+Note that this process describes the prototype for 
+projects with a single building or address. 
+The proposed procedure for handling multi-address 
+projects includes a splash page for the entire project
+and separate data-entry pages for each building or address. 
+This proposed feature is described below in the notes to the 
+whiteboard images.
 
 
 ### Bulk Upload
@@ -245,11 +253,11 @@ For example, an award of one million dollars in CMF funding
 would be the maximum funding permissible
 for a portfolio for which the sum of the 
 total project cost adds to ten million dollars.
-*Note that the constraint on this multiplier is based on total project cost, which includes funds from state or local governments, even though the CMF tool calculates a multiplier that is the ratio of private funding to CMF funding, which is also a useful metric.*
+*Note that the constraint on this multiplier is based on total project cost, which includes funds from state or local governments, even though the CMF tool calculates a multiplier that is the ratio of private funding to CMF funding, which is also a useful metric for evaluating projects.*
 
 1. Sixty percent of rental affordable housing units 
 must be located in either Areas of Economic Distress or High-Opportunity Areas for Eligible-Income Families. 
-That is, the sum of ```txtUnitCount```
+That is, 60 percent of the sum of ```txtUnitCount```
 aggregated across all projects in the portfolio 
 must be located in Census Tract Areas that are designated
 as either Areas of Economic Distress or High-Opportunity Areas for Eligible-Income Families. 
@@ -304,7 +312,7 @@ Also, the preliminary version of the web form
 performs calculations after the user submits the page, 
 which then redirects to a summary page with the calculated
 metrics and eligibility criteria. 
-Later version can perform data checks and eligibility checks
+Later versions can perform data checks and eligibility checks
 live, as soon as the individual fields are entered, 
 so that the applicant immediately sees that the 
 data validity and eligibility criteria are satisfied. 
@@ -315,8 +323,9 @@ To-do list for day 2:
 
 <img src="Images/housing_tool_whiteboard_7.jpg" width="500"/>
 
-Proposal for added feature: add functionality for multi-building projects. Application starts at a splash page
-on which applicant enters project information, 
+Proposal for added feature: add functionality for multi-building projects. 
+The application starts at a splash page
+on which the applicant enters the project information, 
 including the sources of financing. 
 
 <img src="Images/housing_tool_whiteboard_8.jpg" width="500"/>
@@ -326,10 +335,10 @@ For an added building, the applicant clicks a button to
 complete the information sheet for each building, which is the simpler version prototyped above. 
 For each building, the applicant enters the address, 
 which is used to look up the status as an 
-Area of Economic Distress, which may be different for buildings bordering a Census tract. 
+Area of Economic Distress because this may be different for buildings bordering a Census tract. 
 The main data entry task on this page is the distribution 
 of units across the designations of rental to families within
-the income categories. 
+the income categories for each building or address. 
 
 <img src="Images/housing_tool_whiteboard_9.jpg" width="500"/>
 
