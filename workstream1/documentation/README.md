@@ -1,6 +1,41 @@
+# Re-Tooling the Capital Magnets Loan Fund Process
+
+This README comprises the documentation 
+for a proof of concept for an alternative to the current 
+set of procedures for adjudicating grants for the 
+Capital Magnets Loan Fund (CMF) 
+of the Florida Community Loan Fund (FCLF), 
+working with the Central Florida Foundation (CFF). 
+
+It addresses the problem laid out in a DataDive workflow called
+*Expanding and Improving FCLF’s Capital Magnets Loan Fund Process and Tooling*, 
+which is Workstream 1 of the 
+project called
+*Supporting the development of affordable and attainable housing solutions in Florida by unlocking stakeholder knowledge and capacity*.
+The project brief for this DataDive event is available on 
+[Google Docs](https://docs.google.com/document/d/1FWQMIgPJqb0235BIkKMO6CU1JqtRGN7CnQolky6jmOo/edit). 
+The aim of the project is to propose an alternative set of procedures for the 
+current set of manual procedures 
+using the CMF 
+[Project Tracking and Scenario Tool](https://docs.google.com/spreadsheets/d/1qOzzP9Gyhl86o2OPK1iCVCdhrFu_WRgF/edit#gid=284374061). 
+A Jupyter notebook for the project is also available [here](https://colab.research.google.com/drive/18HLICUsACDZUJ6UelMzQCZCliIZ1OZuE?usp=sharing#scrollTo=rXb7ddlAl-ER), 
+which contains a preliminary outline of the project.
+The group also maintained contact through a Slack channel called
+[proj-housing](https://app.slack.com/client/T05U65KU6TV/C05U6945M8S). 
+
+
+
 # Definitions of Fields in the Web Form
 
+A prototype of a webform was created to facilitate the input
+and processing of the information in applications for CMF grants. 
+The web form contains the following list of variables, 
+sorted by category of information. 
+
 ## Property Identification
+
+The first set of variables is related to the project
+that may be proposed by a building developer.
 
 - ```txtPPN```	is the name of the proposed project. 
   It must be a string without spaces nor special characters.
@@ -24,6 +59,8 @@
 
 ## Financing information
 
+The next set of variables outline the sources of financing
+for the project, including the contribution requested from the CMF. 
 
 - ```txtTotProjCost```	is the total projected cost of the building project. 
   It must be a positive integer. 
@@ -53,6 +90,11 @@ Furthermore, the sum of
 
 
 ## Inventory of Units
+
+The next set of variables outlines the allocation of units in the 
+proposed development and the distribution of these units
+to be made affordable to residents 
+who fall within several categories of income. 
 
 
 - ```txtUnitCount```	is the total number of housing units in the proposed housing development. 
@@ -350,7 +392,7 @@ and the total counts of units are accumulated in a panel
 back on the splash page covering the entire project. 
 
 
-## Next Steps
+# Next Steps
 
 Some of these items were completed but some remain
 as a sketch of the strategy for building out these features. 
